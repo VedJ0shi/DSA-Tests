@@ -1,9 +1,22 @@
 #the obj instatiation process calls __new__() and __init__() special methods
 
-'''__new__() should return a new empty object in memory which is referred to by 
+'''Inside parent class, __new__() should return a new empty instance in memory which is referred to by 
 'self' (1st arg) in __init__() and the rest of the class's instance methods'''
 
+'''Inside  metaclass, __new__() should return the class callable in memory which is referred to by 
+'cls' (1st arg) in __call__() and the rest of the metaclass's class methods'''
+
 '''__init__() should not return anything (return None)'''
+
+class TempType(type):
+    def __new__(cls, *args):
+        cls = super().__new__(cls, *args)
+        print(cls.__name__, 'invoking custom metaclass at class definition')
+        return cls
+    
+    def __call__(cls, *args, **kwargs):
+        print(cls.__name__, 'invoking custom metaclass at instance creation')
+        return super().__call__(*args, **kwargs)
 
 class Rectangle:
     def __new__(cls, *args, **kwargs):
@@ -19,11 +32,11 @@ class Rectangle:
         return self.length * self.width
     
    
-class Square(Rectangle):
+class Square(Rectangle, metaclass=TempType):
     def __init__(self, l):
         print('initialzing state of the Square instance')
         super().__init__(l, l)
-
+    
 
 class BoundedRectangle(Rectangle):
     def __init__(self, l, w): #conducts validation

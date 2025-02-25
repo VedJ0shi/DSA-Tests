@@ -33,7 +33,7 @@ class LinkedStack:
     
     
     def push(self, obj):
-        '''insertion at the head-- bottom of stack at tail'''
+        '''insertion at the head (top of stack at head, bottom of stack at tail)'''
         self._head = self._Node(obj, self._head ) #new node's _next points to the existing head node
         self._size = self._size + 1
         if self._size == 1:

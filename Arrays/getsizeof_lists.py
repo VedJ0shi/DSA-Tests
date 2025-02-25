@@ -3,11 +3,12 @@ import sys
 
 '''lists are saved as dynamic reference arrays'''
 
-print('sys.getsizeof([]):', sys.getsizeof([]))
-print()
 
 data = []
 size = sys.getsizeof(data)
+print('sys.getsizeof([]):', size)
+print()
+
 for i in range(25):
     data.append(None) #append the None type obj
     print('data:', data)

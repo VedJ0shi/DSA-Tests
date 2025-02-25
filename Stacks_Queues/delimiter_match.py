@@ -7,10 +7,9 @@ def is_matched(expr):
     S = ArrayStack() #tracks opening delimiter symbols only
 
     for char in expr:
-        print(S)
         if char in delimiters[0]: #opening delimiters
             S.push(char)
-        if char in delimiters[1]: #closing delimiters
+        elif char in delimiters[1]: #closing delimiters
             j = delimiters[1].index(char)
             if S.is_empty(): 
                 return False #cannot begin expr with closing delimiter

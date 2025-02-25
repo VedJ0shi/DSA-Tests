@@ -19,7 +19,7 @@ class HeapPriorityQueue(PriorityQueueBase):
         #procedure to rearrange temp._data with repeated calls to _downheap():
         if len(temp) > 1:
             for j in range(len(temp)-1, -1, -1):
-                temp._downheap(j) #all leaf positions will return immediately (trivial indices)
+                temp._downheap(j) #all initial leaf positions will return immediately (trivial indices)
         return temp
     
     def __str__(self):

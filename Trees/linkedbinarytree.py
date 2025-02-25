@@ -11,8 +11,8 @@ class LinkedBinaryTree(BinaryTreeBase):
         
     class _Position:
         def __init__(self, container, node):
-            self._container = container
-            self._node = node #if _container is not 'self', then position does not belong to current Tree
+            self._container = container #if _container is not 'self', then position does not belong to current Tree
+            self._node = node 
     
         def element(self):
             return self._node._element

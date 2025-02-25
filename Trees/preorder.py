@@ -6,7 +6,7 @@ class PreorderMixin:
 
     def preorder(self):
         '''generates a preorder iteration of all position in the tree'''
-        if not self.is_empty(): #'self' eventually refers to an instance of a TreeBase subclass
+        if not self.is_empty(): #in implementation,'self' refers to an instance of a TreeBase subclass
             for pos in self._subtree_preorder(self.root()): #preorder traversal starting at root
                 yield pos
     
